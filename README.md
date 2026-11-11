@@ -16,7 +16,7 @@ Below is the [Dockerfile](Dockerfile) for the C++ application:
 
 ```Dockerfile
 # Use the official Ubuntu image as the base image
-FROM ubuntu:latest
+FROM ubuntu:26.04
 
 # Set the working directory in the container
 WORKDIR /app
@@ -33,7 +33,7 @@ RUN apt-get update && apt-get install -y \
 COPY ok_api.cpp .
 
 # Compile the C++ code
-RUN g++ -o ok_api ok_api.cpp -lcpprest -lboost_system -lboost_thread -lboost_chrono -lboost_random -lssl -lcrypto
+RUN g++ -o ok_api ok_api.cpp -lcpprest -lboost_thread -lboost_chrono -lboost_random -lssl -lcrypto
 
 # Expose the port on which the API will listen
 EXPOSE 8080
